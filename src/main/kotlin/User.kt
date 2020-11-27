@@ -1,11 +1,17 @@
-class User(var firstName: String, var lastName: String, var isPlatinum: Boolean) {
+class User(firstName: String, lastName: String) {
 
-    constructor(firstName: String, lastName: String): this(firstName, lastName, false) {
-        println("2nd")
+    private var age: Int = -1
+
+    constructor(firstName: String, lastName: String, age: Int): this(firstName, lastName) {
+        this.age = age
     }
 
-    constructor(firstName: String): this(firstName, "Unknown") {
-        println("3rd")
+    var fullName: String = "$firstName $lastName"
+        private set
+
+    init {
+        println("1st init")
+        println("FullName: $fullName")
     }
 
 }
