@@ -1,11 +1,6 @@
 fun main() {
-    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj")
-    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj, Goku")
-    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj, Goku, Vegita")
-    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj, Goku, Vegita, Beerus")
+    val user = User(firstName = "Arjun", lastName = "Manoj")
+    val friend = User(firstName = "Shivangi", lastName = "Shah", isPlatinum = true)
+    val cousin = User(firstName = "Nick")
 }
 
-fun book(name: String, vararg authors: String) {
-    print("$name by ")
-    authors.forEach { print(it) }
-}
