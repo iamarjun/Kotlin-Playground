@@ -1,15 +1,11 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj")
+    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj, Goku")
+    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj, Goku, Vegita")
+    book("Dragon Ball Z", "Akira Toriyama, Arjun Manoj, Goku, Vegita, Beerus")
+}
 
-    fun hello() {
-        println("Hello")
-
-        fun moo() {
-            println("Moo")
-        }
-
-        moo()
-    }
-
-    hello()
+fun book(name: String, vararg authors: String) {
+    print("$name by ")
+    authors.forEach { print(it) }
 }
