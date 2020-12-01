@@ -2,11 +2,17 @@ fun main() {
 
 
     /**
-     * Nested class don't hold a reference to the parent class
+     * Nested inner classes hold a reference to the container class
+     * hence can only be accessed via an object of the container class
      */
     val myCar = Vehicle()
-    val steeringWheel = Vehicle.SteeringWheel()
-    val transmission = Vehicle.Transmission()
+    myCar.info()
+
+    val steeringWheel = myCar.SteeringWheel()
+    steeringWheel.info()
+
+    val transmission = myCar.Transmission()
+    transmission.info()
 
 }
 
@@ -15,12 +21,12 @@ class Vehicle {
     var brand: String = "unknown"
     fun info() = println(brand)
 
-    class SteeringWheel {
-        var name: String = "Steering Wheel"
-        fun info() = println(name)
+    inner class SteeringWheel {
+        var name: String = "Leather"
+        fun info() = println("$brand has $name steering wheels")
     }
 
-    class Transmission {
+    inner class Transmission {
         var type = "Automatic"
         fun info() = println("The vehicle has shifted")
     }
