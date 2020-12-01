@@ -1,34 +1,27 @@
 fun main() {
-
-
-    /**
-     * Nested inner classes hold a reference to the container class
-     * hence can only be accessed via an object of the container class
-     */
-    val myCar = Vehicle()
-    myCar.info()
-
-    val steeringWheel = myCar.SteeringWheel()
-    steeringWheel.info()
-
-    val transmission = myCar.Transmission()
-    transmission.info()
-
+    println(Membership.BRONZE.discount())
+    print(Membership.membershipByName("platinum"))
 }
 
-class Vehicle {
+enum class Membership {
+    BRONZE {
+        override fun discount() = 5
+    },
+    SILVER {
+        override fun discount() = 10
+    },
+    GOLD {
+        override fun discount() = 15
+    },
+    PLATINUM {
+        override fun discount() = 20
+    };
 
-    var brand: String = "unknown"
-    fun info() = println(brand)
+    abstract fun discount(): Int
 
-    inner class SteeringWheel {
-        var name: String = "Leather"
-        fun info() = println("$brand has $name steering wheels")
+    companion object {
+
+        fun membershipByName(name: String) = valueOf(name.toUpperCase())
     }
 
-    inner class Transmission {
-        var type = "Automatic"
-        fun info() = println("The vehicle has shifted")
-    }
 }
-
