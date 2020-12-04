@@ -1,10 +1,11 @@
 fun main() {
     val a = User("arjun", 10)
-    print(a.component1())
 
     val (name, age) = a
-    print(name)
-    print(age)
+    val b = a.copy()
+    println(a == b)
+    println(name)
+    println(age)
 }
 
 data class User( val name: String,  val age: Int)
