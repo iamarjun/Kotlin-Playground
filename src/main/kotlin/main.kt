@@ -1,13 +1,26 @@
 fun main() {
-    val a = User("arjun", 10)
-    val b = a.copy()
-    println(a == b)
-
-    val c = Pair("Arjun", 10)
-    val d = Triple("Arjun", false, 25)
-
-    val (title, years) = c
-    val (name, isSingle, age) = d
 }
 
-data class User( val name: String,  val age: Int)
+open class Person(var name: String, var age: Int) {
+
+    fun info() {
+        println("This person's name is $name and the age is $age")
+    }
+}
+
+open class Chef(name: String, age: Int, var favouriteFood: String) : Person(name, age) {
+
+    protected fun printFavouriteFood() = println(favouriteFood)
+
+    fun setMyFavouriteFood(food: String) {
+        favouriteFood = food
+        printFavouriteFood()
+    }
+}
+
+open class SousChef(name: String, age: Int, favouriteFood: String): Chef(name, age, favouriteFood) {
+
+    init {
+        printFavouriteFood()
+    }
+}
